@@ -12,15 +12,16 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var scrollView: UIScrollView!
     
-    @IBOutlet weak var LoginTextfield: UITextField!
     
-    @IBOutlet weak var PasswordTextfield: UITextField!
+    @IBOutlet weak var loginTextfield: UITextField!
     
-    @IBAction func LoginButtonPressed(_ sender: Any) {
+    @IBOutlet weak var passwordTextfield: UITextField!
+    
+    @IBAction func loginButtonPressed(_ sender: Any) {
         // получаем текст логина
-        let login = LoginTextfield.text!
+        let login = loginTextfield.text!
         // получаем текст пароль
-        let password = PasswordTextfield.text!
+        let password = passwordTextfield.text!
         // проверяем верны ли они
         if login == "admin" && password == "yellow!submar1n3" {
             print("You've done it")
@@ -28,6 +29,7 @@ class ViewController: UIViewController {
             print("Maybe later")
         }
     }
+    
     // Здесь будет связь для кнопки входа вконтакте, которая сейчас является заглушкой
     
     override func viewDidLoad() {
