@@ -17,17 +17,37 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var passwordTextfield: UITextField!
     
-    @IBAction func loginButtonPressed(_ sender: Any) {
-        // получаем текст логина
-        let login = loginTextfield.text!
-        // получаем текст пароль
-        let password = passwordTextfield.text!
-        // проверяем верны ли они
-        if login == "admin" && password == "yellow!submar1n3" {
-            print("You've done it")
-        } else {
-            print("Maybe later")
+    func checkUserData() -> Bool {
+        guard let login = loginTextfield.text, let password = passwordTextfield.text else {
+            return false
         }
+        if login == "admin" && password == "1qaz" {
+            return true
+        }
+        return false
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        // Проверяем данные
+        let checkResult = checkUserData()
+        // если данные неверны, покажем ошибку
+        if !checkResult {
+            showLoginError()
+        }
+        // вернем результат
+        return checkResult
+    }
+    
+    func showLoginError() {
+        // Создаем контроллер
+        let alter = UIAlertController(title: "Error", message: "User data is incorrect",
+                                      preferredStyle: .alert)
+        // Создаем кнопку для UIAlertController
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        // Добавляем кнопку на UIAlertController
+        alter.addAction(action)
+        // показываем UIAlertController
+        present(alter, animated: true, completion: nil)
     }
     
     // Здесь будет связь для кнопки входа вконтакте, которая сейчас является заглушкой
