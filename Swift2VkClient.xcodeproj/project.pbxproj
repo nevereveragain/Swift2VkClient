@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1280938120B8136300CF4FB6 /* LoginWithVKController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1280938020B8136300CF4FB6 /* LoginWithVKController.swift */; };
 		12ABCD5F20B17C3D00B27A52 /* FriendSceneCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12ABCD5E20B17C3D00B27A52 /* FriendSceneCollectionController.swift */; };
 		12ABCD6120B17CCB00B27A52 /* FriendCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12ABCD6020B17CCB00B27A52 /* FriendCollectionCell.swift */; };
 		12ABCD6620B1923B00B27A52 /* UserGroupsCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12ABCD6520B1923B00B27A52 /* UserGroupsCellController.swift */; };
@@ -20,9 +21,13 @@
 		12B3873C20A17C7D001565C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12B3873A20A17C7D001565C5 /* LaunchScreen.storyboard */; };
 		12C83D7320B165AC0040A3A6 /* FriendsSceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C83D7220B165AC0040A3A6 /* FriendsSceneController.swift */; };
 		12C83D7520B166160040A3A6 /* FriendsSceneCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C83D7420B166160040A3A6 /* FriendsSceneCellController.swift */; };
+		12F87D2920B4240D003AE259 /* GroupStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F87D2820B4240D003AE259 /* GroupStruct.swift */; };
+		BE26A3A9904A79B8A89642B7 /* Pods_Swift2VkClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38A3D16D7BEA9C375226EF53 /* Pods_Swift2VkClient.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		10C659EC36DAE1EE272151FA /* Pods-Swift2VkClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swift2VkClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-Swift2VkClient/Pods-Swift2VkClient.release.xcconfig"; sourceTree = "<group>"; };
+		1280938020B8136300CF4FB6 /* LoginWithVKController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithVKController.swift; sourceTree = "<group>"; };
 		12ABCD5E20B17C3D00B27A52 /* FriendSceneCollectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendSceneCollectionController.swift; sourceTree = "<group>"; };
 		12ABCD6020B17CCB00B27A52 /* FriendCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCollectionCell.swift; sourceTree = "<group>"; };
 		12ABCD6520B1923B00B27A52 /* UserGroupsCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGroupsCellController.swift; sourceTree = "<group>"; };
@@ -38,6 +43,9 @@
 		12B3873D20A17C7D001565C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		12C83D7220B165AC0040A3A6 /* FriendsSceneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsSceneController.swift; sourceTree = "<group>"; };
 		12C83D7420B166160040A3A6 /* FriendsSceneCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsSceneCellController.swift; sourceTree = "<group>"; };
+		12F87D2820B4240D003AE259 /* GroupStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupStruct.swift; sourceTree = "<group>"; };
+		38A3D16D7BEA9C375226EF53 /* Pods_Swift2VkClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swift2VkClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		600733013A2265726BF6CED6 /* Pods-Swift2VkClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swift2VkClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Swift2VkClient/Pods-Swift2VkClient.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,12 +53,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE26A3A9904A79B8A89642B7 /* Pods_Swift2VkClient.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1280937F20B8134000CF4FB6 /* Login With VK Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1280938020B8136300CF4FB6 /* LoginWithVKController.swift */,
+			);
+			path = "Login With VK Controller";
+			sourceTree = "<group>";
+		};
 		12ABCD6220B1904D00B27A52 /* Groups Scene Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +100,8 @@
 			children = (
 				12B3873020A17C7B001565C5 /* Swift2VkClient */,
 				12B3872F20A17C7B001565C5 /* Products */,
+				34FFBBBA4673D5B467151833 /* Pods */,
+				835D344E48B2E8D8F50C5DDB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,6 +116,7 @@
 		12B3873020A17C7B001565C5 /* Swift2VkClient */ = {
 			isa = PBXGroup;
 			children = (
+				12F87D2720B423F5003AE259 /* Helpers */,
 				12B3873120A17C7B001565C5 /* AppDelegate.swift */,
 				12E80BC320A344C60018FB1E /* Controllers */,
 				12E80BC220A344AA0018FB1E /* Views */,
@@ -129,11 +149,37 @@
 		12E80BC320A344C60018FB1E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				1280937F20B8134000CF4FB6 /* Login With VK Controller */,
 				12ABCD6220B1904D00B27A52 /* Groups Scene Controllers */,
 				12C83D7120B1655B0040A3A6 /* Friends Scene Controllers */,
 				12B3873320A17C7B001565C5 /* LoginScreenViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		12F87D2720B423F5003AE259 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				12F87D2820B4240D003AE259 /* GroupStruct.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		34FFBBBA4673D5B467151833 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				600733013A2265726BF6CED6 /* Pods-Swift2VkClient.debug.xcconfig */,
+				10C659EC36DAE1EE272151FA /* Pods-Swift2VkClient.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		835D344E48B2E8D8F50C5DDB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				38A3D16D7BEA9C375226EF53 /* Pods_Swift2VkClient.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,9 +189,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 12B3874020A17C7D001565C5 /* Build configuration list for PBXNativeTarget "Swift2VkClient" */;
 			buildPhases = (
+				D51EBAD04E3E52AE822636A4 /* [CP] Check Pods Manifest.lock */,
 				12B3872A20A17C7A001565C5 /* Sources */,
 				12B3872B20A17C7A001565C5 /* Frameworks */,
 				12B3872C20A17C7A001565C5 /* Resources */,
+				C8AE3046ADADF3363820C4CF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -202,6 +250,45 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C8AE3046ADADF3363820C4CF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Swift2VkClient/Pods-Swift2VkClient-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Swift2VkClient/Pods-Swift2VkClient-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D51EBAD04E3E52AE822636A4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Swift2VkClient-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		12B3872A20A17C7A001565C5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -211,9 +298,11 @@
 				12ABCD5F20B17C3D00B27A52 /* FriendSceneCollectionController.swift in Sources */,
 				12C83D7320B165AC0040A3A6 /* FriendsSceneController.swift in Sources */,
 				12B3873420A17C7B001565C5 /* LoginScreenViewController.swift in Sources */,
+				1280938120B8136300CF4FB6 /* LoginWithVKController.swift in Sources */,
 				12ABCD6620B1923B00B27A52 /* UserGroupsCellController.swift in Sources */,
 				12ABCD6820B1924C00B27A52 /* AllGroupsCellController.swift in Sources */,
 				12B3873220A17C7B001565C5 /* AppDelegate.swift in Sources */,
+				12F87D2920B4240D003AE259 /* GroupStruct.swift in Sources */,
 				12ABCD6120B17CCB00B27A52 /* FriendCollectionCell.swift in Sources */,
 				12ABCD6A20B1987E00B27A52 /* UserGroupsListController.swift in Sources */,
 				12ABCD6C20B1996200B27A52 /* AllGroupsListController.swift in Sources */,
@@ -358,6 +447,7 @@
 		};
 		12B3874120A17C7D001565C5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 600733013A2265726BF6CED6 /* Pods-Swift2VkClient.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -376,6 +466,7 @@
 		};
 		12B3874220A17C7D001565C5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 10C659EC36DAE1EE272151FA /* Pods-Swift2VkClient.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
