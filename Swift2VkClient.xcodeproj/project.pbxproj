@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		123F0A1320BBFBC4003151BA /* NetworkQueries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123F0A1220BBFBC4003151BA /* NetworkQueries.swift */; };
 		1280938120B8136300CF4FB6 /* LoginWithVKController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1280938020B8136300CF4FB6 /* LoginWithVKController.swift */; };
 		12ABCD5F20B17C3D00B27A52 /* FriendSceneCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12ABCD5E20B17C3D00B27A52 /* FriendSceneCollectionController.swift */; };
 		12ABCD6120B17CCB00B27A52 /* FriendCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12ABCD6020B17CCB00B27A52 /* FriendCollectionCell.swift */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		10C659EC36DAE1EE272151FA /* Pods-Swift2VkClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swift2VkClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-Swift2VkClient/Pods-Swift2VkClient.release.xcconfig"; sourceTree = "<group>"; };
+		123F0A1220BBFBC4003151BA /* NetworkQueries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkQueries.swift; sourceTree = "<group>"; };
 		1280938020B8136300CF4FB6 /* LoginWithVKController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithVKController.swift; sourceTree = "<group>"; };
 		12ABCD5E20B17C3D00B27A52 /* FriendSceneCollectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendSceneCollectionController.swift; sourceTree = "<group>"; };
 		12ABCD6020B17CCB00B27A52 /* FriendCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCollectionCell.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				12ABCD6220B1904D00B27A52 /* Groups Scene Controllers */,
 				12C83D7120B1655B0040A3A6 /* Friends Scene Controllers */,
 				12B3873320A17C7B001565C5 /* LoginScreenViewController.swift */,
+				123F0A1220BBFBC4003151BA /* NetworkQueries.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				12ABCD6120B17CCB00B27A52 /* FriendCollectionCell.swift in Sources */,
 				12ABCD6A20B1987E00B27A52 /* UserGroupsListController.swift in Sources */,
 				12ABCD6C20B1996200B27A52 /* AllGroupsListController.swift in Sources */,
+				123F0A1320BBFBC4003151BA /* NetworkQueries.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

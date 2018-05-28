@@ -53,83 +53,6 @@ class LoginWithVKController: UIViewController {
     func goToScreen () {
         self.performSegue(withIdentifier: "performVk", sender: self)
     }
-    // MARK: Lesson 4
-    // Спрашивал в телеграме:
-    //@swiftcampus у меня вопрос.
-    //
-    //Контекст - не зная, как прикопать данные, придется работать с prepare(for segue: UIStoryboardSegue, sender: Any?) а значит, тащить токен через вообще все экраны приложения.
-    //
-    //А с учетом того, что следующий переход у нас идет в таббар контроллер, эта идея выглядит пугающе 🙂
-    //
-    //Я правильно понимаю, что нам нужно реализовать запросы к апи контакта на том же экране, где мы получили токен?
-    
-    // На момент, когда у меня было время сделать домашку вы не успели ответить, поэтому прикладываю пока так, думаю, когда мы придем к хранению данных, нужно будет вынести на отдельные экраны эти функции.
-    // В целом, если бы понадобилось работать в текущей логике - мне пришлось бы использовать prepare чтобы передать токен на соответствующий экран
-
-    
-    // MARK: 4.1
-    // Так как у нас в двух заданиях - вывести список друзей и вывести фото друга, я сделал одну функцию, в которой доп.параметром запрошу фотографию друга
-    func loadFriendsListWithPhoto() {
-        guard let userToken = token else {return}
-        let path = "https://api.vk.com/method/friends.get"
-        let parameters: Parameters = [
-            "access_token": userToken,
-            "fields": "photo_100",
-            "v": "5.78"
-        ]
-        
-        Alamofire.request(path, parameters: parameters).responseJSON { (response) in
-            if let error = response.error {
-                print(error)
-                return
-            }
-            
-            if let value = response.value {
-                print(value)
-            }
-        }
-    }
-    
-    func getUserGroups() {
-        guard let userToken = token else {return}
-        let path = "https://api.vk.com/method/groups.get"
-        let parameters: Parameters = [
-            "access_token": userToken,
-            "v": "5.78"
-        ]
-        
-        Alamofire.request(path, parameters: parameters).responseJSON { (response) in
-            if let error = response.error {
-                print(error)
-                return
-            }
-            
-            if let value = response.value {
-                print(value)
-            }
-        }
-    }
-    
-    func getGroupsFromQuery(_ query: String) {
-        guard let userToken = token else {return}
-        let path = "https://api.vk.com/method/groups.search"
-        let parameters: Parameters = [
-            "access_token": userToken,
-            "v": "5.78",
-            "q": query
-        ]
-        
-        Alamofire.request(path, parameters: parameters).responseJSON { (response) in
-            if let error = response.error {
-                print(error)
-                return
-            }
-            
-            if let value = response.value {
-                print(value)
-            }
-        }
-    }
     
 }
 
@@ -157,6 +80,7 @@ extension LoginWithVKController: WKNavigationDelegate {
         if let token = params["access_token"] {
             print(token)
             self.token = token
+            // MARK: NetworkQueries - файл, в котором вынесены методы работы с сетью
             loadFriendsListWithPhoto()
             getUserGroups()
             getGroupsFromQuery("Dodo pizza")
