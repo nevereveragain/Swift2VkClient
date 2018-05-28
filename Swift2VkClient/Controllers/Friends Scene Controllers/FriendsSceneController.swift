@@ -14,10 +14,11 @@ class FriendsSceneController : UITableViewController {
         "Darth Vader",
         "Tom and Jerry"
     ]
-    
+    var token: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -47,4 +48,5 @@ class FriendsSceneController : UITableViewController {
             cell.friendName.text = friend
             return cell
     }
+    
 }
