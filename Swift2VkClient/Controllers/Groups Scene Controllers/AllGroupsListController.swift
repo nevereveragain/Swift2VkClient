@@ -10,10 +10,6 @@ import UIKit
 
 class AllGroupsListController: UITableViewController, UISearchBarDelegate {
 
-    struct Group {
-        var name = String()
-        var groupSize = String()
-    }
     var filteredData: [Group] = []
     
     var allGroupsList = [
