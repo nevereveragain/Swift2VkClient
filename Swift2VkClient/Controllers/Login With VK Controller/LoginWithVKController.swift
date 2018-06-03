@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 import Alamofire
-import RealmSwift
+import SwiftKeychainWrapper
 
 class LoginWithVKController: UIViewController {
     
@@ -31,8 +31,8 @@ class LoginWithVKController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let friendScene = segue.destination as? FriendsSceneController else {return}
-        friendScene.token = token
+//        guard let friendScene = segue.destination as? FriendsSceneController else {return}
+//        friendScene.token = token
     }
     
     func vkAuthRequest() -> URLRequest? {
@@ -80,15 +80,10 @@ extension LoginWithVKController: WKNavigationDelegate {
         }
         
         if let token = params["access_token"] {
-//            print(token)
             self.token = token
             service = VKService (token: token)
-//            service?.getFriends()
-            service?.groupSearch("Dodo pizza")
-//            service?.getGroups()
-//            service?.groupSearch(strSearch: "Dodo pizza")
-            // Для удобства закоментил вызов метода перехода на другой экран
-//            goToScreen()
+            KeychainWrapper.standard.set(token, forKey: "userToken")
+            goToScreen()
         }
         
         decisionHandler(.allow)

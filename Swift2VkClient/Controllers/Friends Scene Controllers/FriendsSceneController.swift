@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftKeychainWrapper
 
 class FriendsSceneController : UITableViewController {
     var friendsList = [
@@ -14,10 +15,12 @@ class FriendsSceneController : UITableViewController {
         "Darth Vader",
         "Tom and Jerry"
     ]
-    var token: String?
+    var service: VKService?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        guard let token: String = KeychainWrapper.standard.string(forKey: "userToken") else { return }
         
     }
     
@@ -42,11 +45,16 @@ class FriendsSceneController : UITableViewController {
         UITableViewCell {
             // получаем ячейку из пула
             let cell = tableView.dequeueReusableCell(withIdentifier: "TableToCollection", for: indexPath) as! FriendsSceneCellController
+//            guard let token: String = KeychainWrapper.standard.string(forKey: "userToken") else {return cell}
+            // MARK: ВОПРОС В строчке выше я вытащил токен из кейчейна. Где мне его правильно вытащить так, чтобы он (токен) стал доступен на уровне всего класса FriendSceneController? Правильно ли помещать токен таким образом в гвард, и что лучше возвращать, если токен пропал?
+            // MARK: ВОПРОС2 Не получилось привязать данные полученные с помощью VKService к таблице экрана FriendSceneController - получаю разные ошибки связаные с опционалами, например, если обкладываю гвардом строку ниже для извлечения опционала, то получаю ошибку Cannot assign value of type 'VKService' to type 'VKService?'. А если не обкладываю, то даже принт выводит Optional(). Как быть?
+//            service = VKService (token: token)
             // получаем имя для конкретной строки
             let friend = friendsList[indexPath.row]
             // устанавливаем имя в надпись ячейки
             cell.friendName.text = friend
             return cell
+            // MARK: Вопрос3 Какие типы хранилищ правильней использовать для каких типов данных? Как я понял - UserDefaults для открытых настроек приложения, Keychain - для шифрованых данных (токены, логины-пароли, приватные сесси и и тд), а в базах все, что нужно закешировать? Или есть нюансы?
     }
     
 }

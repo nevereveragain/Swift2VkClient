@@ -9,6 +9,7 @@
 import Foundation
 import SwiftyJSON
 import Alamofire
+import RealmSwift
 
 enum VKServiceMethod {
     case getUsers
@@ -58,7 +59,7 @@ class VKService {
     init(token: String) {
         self.token = token
     }
-    
+    // Отладочная функция для проверки того, не потерялся ли токен
     func printToken() {
         print(token)
     }
@@ -103,7 +104,6 @@ class VKService {
             if let data = data, let json = try? JSON(data: data) {
                 let items = json["response"]["items"].arrayValue
                 let friends = items.map { FriendWithPhoto(json: $0) }
-                print(urlPath)
             }
         }
         task.resume()
@@ -137,6 +137,18 @@ class VKService {
             }
         }
         task.resume()
+    }
+    // MARK: Вопрос 4: Я сделал сохранение сразу данных типа Object, потому что и Users и Groups и FriendWithPhoto - это данные типа Object. Это правильный подход или нужно по-другому?
+    func saveData (_ vkObject: Object){
+        do {
+            let realm = try Realm()
+            realm.beginWrite()
+            realm.add(vkObject)
+            try realm.commitWrite()
+        }
+        catch {
+            print(error)
+        }
     }
     
 }

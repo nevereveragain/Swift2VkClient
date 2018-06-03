@@ -8,14 +8,16 @@
 
 import Foundation
 import SwiftyJSON
+import RealmSwift
 
-class Groups {
+class Groups: Object {
     
-    var groupName: String = ""
-    var groupId: String = ""
-    var groupPhoto_100: String = ""
+    @objc dynamic var groupName: String = ""
+    @objc dynamic var groupId: String = ""
+    @objc dynamic var groupPhoto_100: String = ""
     
-    init(json: JSON) {
+    convenience init(json: JSON) {
+        self.init()
         self.groupName = json["name"].stringValue
         self.groupId = json["id"].stringValue
         self.groupPhoto_100 = json["photo_100"].stringValue
