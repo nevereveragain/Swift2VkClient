@@ -9,12 +9,14 @@
 import UIKit
 import WebKit
 import Alamofire
+import RealmSwift
 
 class LoginWithVKController: UIViewController {
     
 
     @IBOutlet weak var webView: WKWebView!
-    var token: String?
+    var token: String = ""
+    var service: VKService?
 
     
     override func viewDidLoad() {
@@ -78,12 +80,13 @@ extension LoginWithVKController: WKNavigationDelegate {
         }
         
         if let token = params["access_token"] {
-            print(token)
+//            print(token)
             self.token = token
-            // MARK: NetworkQueries - файл, в котором вынесены методы работы с сетью
-            loadFriendsListWithPhoto()
-            getUserGroups()
-            getGroupsFromQuery("Dodo pizza")
+            service = VKService (token: token)
+//            service?.getFriends()
+            service?.groupSearch("Dodo pizza")
+//            service?.getGroups()
+//            service?.groupSearch(strSearch: "Dodo pizza")
             // Для удобства закоментил вызов метода перехода на другой экран
 //            goToScreen()
         }
