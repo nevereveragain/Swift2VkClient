@@ -22,7 +22,6 @@ class LoginWithVKController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         webView.navigationDelegate = self
         
         if let request = vkAuthRequest() {

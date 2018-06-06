@@ -8,7 +8,7 @@
 
 import Foundation
 import SwiftyJSON
-import Alamofire
+//import Alamofire
 import RealmSwift
 
 enum VKServiceMethod {
@@ -124,7 +124,7 @@ class VKService {
     }
     func groupSearch(_ request: String) {
         let urlPath = getURLPath(for: .searchGroups) + request
-        // getURLPath выходил из гварда если в запросе был пробел. Я добавил обработку этого случая - обрезал пробел с помощью addingPercentEncoding
+        // getURLPath выходил из гварда если в запросе был пробел.   Добавил обработку этого случая - обрезал пробел с помощью addingPercentEncoding
         guard let urlString = urlPath.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) else { return }
         guard let url = URL(string: urlString) else { return }
         
@@ -138,7 +138,7 @@ class VKService {
         }
         task.resume()
     }
-    // MARK: Вопрос 4: Я сделал сохранение сразу данных типа Object, потому что и Users и Groups и FriendWithPhoto - это данные типа Object. Это правильный подход или нужно по-другому?
+
     func saveData (_ vkObject: Object){
         do {
             let realm = try Realm()
