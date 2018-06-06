@@ -9,17 +9,18 @@
 import UIKit
 import WebKit
 import Alamofire
+import SwiftKeychainWrapper
 
 class LoginWithVKController: UIViewController {
     
 
     @IBOutlet weak var webView: WKWebView!
-    var token: String?
+    var token: String = ""
+    var service: VKService?
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         webView.navigationDelegate = self
         
@@ -29,8 +30,8 @@ class LoginWithVKController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let friendScene = segue.destination as? FriendsSceneController else {return}
-        friendScene.token = token
+//        guard let friendScene = segue.destination as? FriendsSceneController else {return}
+//        friendScene.token = token
     }
     
     func vkAuthRequest() -> URLRequest? {
@@ -78,14 +79,10 @@ extension LoginWithVKController: WKNavigationDelegate {
         }
         
         if let token = params["access_token"] {
-            print(token)
             self.token = token
-            // MARK: NetworkQueries - файл, в котором вынесены методы работы с сетью
-            loadFriendsListWithPhoto()
-            getUserGroups()
-            getGroupsFromQuery("Dodo pizza")
-            // Для удобства закоментил вызов метода перехода на другой экран
-//            goToScreen()
+            service = VKService (token: token)
+            KeychainWrapper.standard.set(token, forKey: "userToken")
+            goToScreen()
         }
         
         decisionHandler(.allow)
