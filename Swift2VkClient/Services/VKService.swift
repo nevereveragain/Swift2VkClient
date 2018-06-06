@@ -89,13 +89,14 @@ class VKService {
                     completion?(users, nil)
                 }
             }
-            
             return
         }
         task.resume()
     }
     
-    func getFriends() {
+//    var onGetFriendsSuccess: ((_ friends: [FriendWithPhoto] )-> Void)?
+    
+    func getFriend (completion: @escaping ([FriendWithPhoto]?) -> Void) {
         let urlPath = getURLPath(for: .getFriends)
         guard let url = URL(string: urlPath) else { return }
         
@@ -104,20 +105,31 @@ class VKService {
             if let data = data, let json = try? JSON(data: data) {
                 let items = json["response"]["items"].arrayValue
                 let friends = items.map { FriendWithPhoto(json: $0) }
+                completion(friends)
             }
+//            if let data = data, let json = try? JSON(data: data) {
+//                let items = json["response"]["items"].arrayValue
+//                let friends = items.map { FriendWithPhoto(json: $0) }
+////                self.onGetFriendsSuccess?(friends)
+//
+//            }
         }
         task.resume()
     }
     
-    func getGroups () {
+    func getGroups (completion: @escaping ([Groups]?, Error?) -> Void) {
         let urlPath = getURLPath(for: .getGroups)
         guard let url = URL(string: urlPath) else { return }
         
         let session = URLSession.shared
         let task = session.dataTask(with: url) { (data, response, error) in
+            if let error = error {
+                completion(nil, error)
+            }
             if let data = data, let json = try? JSON(data: data) {
                 let items = json["response"]["items"].arrayValue
                 let groups = items.map { Groups(json: $0) }
+                completion(groups, nil)
             }
         }
         task.resume()

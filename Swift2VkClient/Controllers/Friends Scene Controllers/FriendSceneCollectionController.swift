@@ -9,6 +9,7 @@
 import UIKit
 
 class FriendSceneCollectionController : UICollectionViewController, UICollectionViewDelegateFlowLayout {
+    var friendAvatar: FriendWithPhoto?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,11 @@ class FriendSceneCollectionController : UICollectionViewController, UICollection
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt IndexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionElement", for: IndexPath) as! FriendCollectionCell
+        if let friendAvatar = friendAvatar {
+            cell.setFriendCell(friendAvatar)
+        }
+        
+        
         return cell
     }
     
