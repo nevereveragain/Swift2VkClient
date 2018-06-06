@@ -13,4 +13,11 @@ class UserGroupsCellController : UITableViewCell {
     @IBOutlet weak var userGroupImage: UIImageView!
     
     @IBOutlet weak var userGroupName: UILabel!
+    
+    func setGroupCell (_ group: Groups) {
+        userGroupName.text = "\(group.groupName)"
+        if let groupAvatarURL = URL(string: "\(group.groupPhoto_100)") {
+            userGroupImage.kf.setImage(with: groupAvatarURL)
+        }
+    }
 }

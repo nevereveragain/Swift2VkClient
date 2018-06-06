@@ -117,19 +117,19 @@ class VKService {
         task.resume()
     }
     
-    func getGroups (completion: @escaping ([Groups]?, Error?) -> Void) {
+    func getGroups (completion: @escaping ([Groups]?) -> Void) {
         let urlPath = getURLPath(for: .getGroups)
         guard let url = URL(string: urlPath) else { return }
         
         let session = URLSession.shared
         let task = session.dataTask(with: url) { (data, response, error) in
-            if let error = error {
-                completion(nil, error)
-            }
+//            if let error = error {
+//                completion(nil, error)
+//            }
             if let data = data, let json = try? JSON(data: data) {
                 let items = json["response"]["items"].arrayValue
                 let groups = items.map { Groups(json: $0) }
-                completion(groups, nil)
+                completion(groups)
             }
         }
         task.resume()

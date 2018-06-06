@@ -18,7 +18,7 @@ class FriendsSceneController : UITableViewController {
     
     var service: VKService?
     var friends = [FriendWithPhoto]()
-    var groupList = [Groups]()
+
 //    {
 //        didSet {
 //            self.tableView.reloadData()
@@ -44,7 +44,11 @@ class FriendsSceneController : UITableViewController {
         service?.getFriend(completion: { (friends) in
             if let friends = friends {
                 self.friends = friends
-                self.tableView.reloadData()
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+//
+//                self.tableView.reloadData()
             }
         })
         
