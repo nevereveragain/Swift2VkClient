@@ -10,6 +10,7 @@ import Foundation
 import SwiftyJSON
 //import Alamofire
 import RealmSwift
+
 public var fileURL: URL?
 enum VKServiceMethod {
     case getUsers
@@ -102,17 +103,14 @@ class VKService {
         let session = URLSession.shared
         let task = session.dataTask(with: url) { (data, response, error) in
             let repository = VKRepo()
-            var friendsL = [FriendWithPhoto]()
             print(Realm.Configuration.defaultConfiguration.fileURL)
             if let data = data, let json = try? JSON(data: data) {
                 let items = json["response"]["items"].arrayValue
                 let friends = items.map { FriendWithPhoto(json: $0) }
-//                let repository = VKRepo()
-//                repository.saveUsersData(friends)
+                let repository = VKRepo()
+                repository.saveUsersData(friends)
                 completion(friends)
-                friendsL = friends
             }
-             repository.saveUsersData(friendsL)
             //            if let data = data, let json = try? JSON(data: data) {
             //                let items = json["response"]["items"].arrayValue
             //                let friends = items.map { FriendWithPhoto(json: $0) }
@@ -123,6 +121,9 @@ class VKService {
        
         task.resume()
     }
+    
+
+    
     
     func getGroups (completion: @escaping ([Groups]?) -> Void) {
         let urlPath = getURLPath(for: .getGroups)

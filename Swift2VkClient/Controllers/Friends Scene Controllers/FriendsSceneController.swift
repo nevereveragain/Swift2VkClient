@@ -44,7 +44,8 @@ class FriendsSceneController : UITableViewController {
 //        })
         service?.getFriend(completion: { (friends) in
             if let friends = friends {
-                self.friends = friends
+//                self.friends = friends
+                self.loadData()
                 
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
@@ -56,7 +57,21 @@ class FriendsSceneController : UITableViewController {
         })
         
     }
+    func loadData() {
+        do {
+            let realm = try Realm()
+            let friendsLoaded = realm.objects(FriendWithPhoto.self).filter("friendID == %@")
+            self.friends = Array(friendsLoaded)
+        } catch {
+            // если произошла ошибка, выводим ее в консоль
+            print(error)
+        }
+    }
     
+//    func loadWDataFromRealm(id: Int) {
+//        let repository = VKRepo()
+//        self.friends = repository.getUsers(user: id)
+//    }
 //    func onGetFriends(_ friends: [FriendWithPhoto]) {
 //        self.friends = friends
 //    }
