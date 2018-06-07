@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftKeychainWrapper
+import RealmSwift
 
 class FriendsSceneController : UITableViewController {
     var friendsList = [
@@ -44,11 +45,13 @@ class FriendsSceneController : UITableViewController {
         service?.getFriend(completion: { (friends) in
             if let friends = friends {
                 self.friends = friends
+                
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
 //
 //                self.tableView.reloadData()
+                
             }
         })
         

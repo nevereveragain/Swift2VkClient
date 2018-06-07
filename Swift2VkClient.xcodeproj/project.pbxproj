@@ -11,6 +11,7 @@
 		120C688E20C05A8D005C71F3 /* FriendWithPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120C688D20C05A8D005C71F3 /* FriendWithPhoto.swift */; };
 		120C689020C05ACF005C71F3 /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120C688F20C05ACF005C71F3 /* Groups.swift */; };
 		123F0A1320BBFBC4003151BA /* NetworkQueries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123F0A1220BBFBC4003151BA /* NetworkQueries.swift */; };
+		1264D6A920C8680D00EC7A7B /* VKRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1264D6A820C8680D00EC7A7B /* VKRepo.swift */; };
 		1280938120B8136300CF4FB6 /* LoginWithVKController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1280938020B8136300CF4FB6 /* LoginWithVKController.swift */; };
 		12ABCD5F20B17C3D00B27A52 /* FriendSceneCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12ABCD5E20B17C3D00B27A52 /* FriendSceneCollectionController.swift */; };
 		12ABCD6120B17CCB00B27A52 /* FriendCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12ABCD6020B17CCB00B27A52 /* FriendCollectionCell.swift */; };
@@ -36,6 +37,7 @@
 		120C688D20C05A8D005C71F3 /* FriendWithPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendWithPhoto.swift; sourceTree = "<group>"; };
 		120C688F20C05ACF005C71F3 /* Groups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Groups.swift; sourceTree = "<group>"; };
 		123F0A1220BBFBC4003151BA /* NetworkQueries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkQueries.swift; sourceTree = "<group>"; };
+		1264D6A820C8680D00EC7A7B /* VKRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKRepo.swift; sourceTree = "<group>"; };
 		1280938020B8136300CF4FB6 /* LoginWithVKController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithVKController.swift; sourceTree = "<group>"; };
 		12ABCD5E20B17C3D00B27A52 /* FriendSceneCollectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendSceneCollectionController.swift; sourceTree = "<group>"; };
 		12ABCD6020B17CCB00B27A52 /* FriendCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCollectionCell.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				12DA1C0E20C284E100D5256F /* VKService.swift */,
+				1264D6A820C8680D00EC7A7B /* VKRepo.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 			files = (
 				12C83D7520B166160040A3A6 /* FriendsSceneCellController.swift in Sources */,
 				12ABCD5F20B17C3D00B27A52 /* FriendSceneCollectionController.swift in Sources */,
+				1264D6A920C8680D00EC7A7B /* VKRepo.swift in Sources */,
 				12C83D7320B165AC0040A3A6 /* FriendsSceneController.swift in Sources */,
 				120C689020C05ACF005C71F3 /* Groups.swift in Sources */,
 				12B3873420A17C7B001565C5 /* LoginScreenViewController.swift in Sources */,
