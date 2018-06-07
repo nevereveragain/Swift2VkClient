@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftKeychainWrapper
 
 class UserGroupListController: UITableViewController {
     // Список существующих групп, который потом будет приходить с сервера
@@ -16,6 +17,8 @@ class UserGroupListController: UITableViewController {
         "CARPENTER BRUT",
         "I am waiting for you last summer"
     ]
+    var userGroupList = [Groups]()
+    var service: VKService?
     
     @IBAction func addGroup(segue: UIStoryboardSegue) {
         guard let allGroupsController = segue.source as? AllGroupsListController else {
@@ -33,6 +36,18 @@ class UserGroupListController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        guard let token: String = KeychainWrapper.standard.string(forKey: "userToken") else { return }
+        service = VKService (token: token)
+        service?.getGroups(completion: { (groups) in
+            if let groups = groups {
+                self.userGroupList = groups
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+
+//                self.tableView.reloadData()
+            }
+        })
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -40,7 +55,7 @@ class UserGroupListController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return groupsList.count
+        return userGroupList.count
     }
     
     
@@ -49,9 +64,9 @@ class UserGroupListController: UITableViewController {
             // получаем ячейку из пула
             let cell = tableView.dequeueReusableCell(withIdentifier: "GroupCell", for: indexPath) as! UserGroupsCellController
             // получаем имя для конкретной строки
-            let group = groupsList[indexPath.row]
+            let group = userGroupList[indexPath.row]
             // устанавливаем имя в надпись ячейки
-            cell.userGroupName.text = group
+            cell.setGroupCell(group)
             return cell
     }
     

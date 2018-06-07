@@ -8,7 +8,8 @@
 
 import Foundation
 import SwiftyJSON
-import Alamofire
+//import Alamofire
+import RealmSwift
 
 enum VKServiceMethod {
     case getUsers
@@ -58,7 +59,7 @@ class VKService {
     init(token: String) {
         self.token = token
     }
-    
+    // Отладочная функция для проверки того, не потерялся ли токен
     func printToken() {
         print(token)
     }
@@ -88,13 +89,14 @@ class VKService {
                     completion?(users, nil)
                 }
             }
-            
             return
         }
         task.resume()
     }
     
-    func getFriends() {
+//    var onGetFriendsSuccess: ((_ friends: [FriendWithPhoto] )-> Void)?
+    
+    func getFriend (completion: @escaping ([FriendWithPhoto]?) -> Void) {
         let urlPath = getURLPath(for: .getFriends)
         guard let url = URL(string: urlPath) else { return }
         
@@ -103,28 +105,38 @@ class VKService {
             if let data = data, let json = try? JSON(data: data) {
                 let items = json["response"]["items"].arrayValue
                 let friends = items.map { FriendWithPhoto(json: $0) }
-                print(urlPath)
+                completion(friends)
             }
+//            if let data = data, let json = try? JSON(data: data) {
+//                let items = json["response"]["items"].arrayValue
+//                let friends = items.map { FriendWithPhoto(json: $0) }
+////                self.onGetFriendsSuccess?(friends)
+//
+//            }
         }
         task.resume()
     }
     
-    func getGroups () {
+    func getGroups (completion: @escaping ([Groups]?) -> Void) {
         let urlPath = getURLPath(for: .getGroups)
         guard let url = URL(string: urlPath) else { return }
         
         let session = URLSession.shared
         let task = session.dataTask(with: url) { (data, response, error) in
+//            if let error = error {
+//                completion(nil, error)
+//            }
             if let data = data, let json = try? JSON(data: data) {
                 let items = json["response"]["items"].arrayValue
                 let groups = items.map { Groups(json: $0) }
+                completion(groups)
             }
         }
         task.resume()
     }
     func groupSearch(_ request: String) {
         let urlPath = getURLPath(for: .searchGroups) + request
-        // getURLPath выходил из гварда если в запросе был пробел. Я добавил обработку этого случая - обрезал пробел с помощью addingPercentEncoding
+        // getURLPath выходил из гварда если в запросе был пробел.   Добавил обработку этого случая - обрезал пробел с помощью addingPercentEncoding
         guard let urlString = urlPath.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) else { return }
         guard let url = URL(string: urlString) else { return }
         
@@ -137,6 +149,18 @@ class VKService {
             }
         }
         task.resume()
+    }
+
+    func saveData (_ vkObject: Object){
+        do {
+            let realm = try Realm()
+            realm.beginWrite()
+            realm.add(vkObject)
+            try realm.commitWrite()
+        }
+        catch {
+            print(error)
+        }
     }
     
 }
