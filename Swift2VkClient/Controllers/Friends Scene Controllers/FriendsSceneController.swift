@@ -44,15 +44,8 @@ class FriendsSceneController : UITableViewController {
 //        })
         service?.getFriend(completion: { (friends) in
             if let friends = friends {
-//                self.friends = friends
-                self.loadData()
-                
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-//
-//                self.tableView.reloadData()
-                
+                self.friends = friends
+                self.tableView.reloadData()
             }
         })
         

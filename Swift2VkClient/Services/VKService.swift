@@ -96,31 +96,52 @@ class VKService {
     
     //    var onGetFriendsSuccess: ((_ friends: [FriendWithPhoto] )-> Void)?
     
+//    func getFriend (completion: @escaping ([FriendWithPhoto]?) -> Void) {
+//        let urlPath = getURLPath(for: .getFriends)
+//        guard let url = URL(string: urlPath) else { return }
+//
+//        let session = URLSession.shared
+//        let task = session.dataTask(with: url) { (data, response, error) in
+//            let repository = VKRepo()
+//            print(Realm.Configuration.defaultConfiguration.fileURL)
+//            if let data = data, let json = try? JSON(data: data) {
+//                let items = json["response"]["items"].arrayValue
+//                let friends = items.map { FriendWithPhoto(json: $0) }
+//                let repository = VKRepo()
+//                repository.saveUsersData(friends)
+//                completion(friends)
+//            }
+//            //            if let data = data, let json = try? JSON(data: data) {
+//            //                let items = json["response"]["items"].arrayValue
+//            //                let friends = items.map { FriendWithPhoto(json: $0) }
+//            ////                self.onGetFriendsSuccess?(friends)
+//            //
+//            //            }
+//        }
+//
+//        task.resume()
+//    }
+    
     func getFriend (completion: @escaping ([FriendWithPhoto]?) -> Void) {
         let urlPath = getURLPath(for: .getFriends)
         guard let url = URL(string: urlPath) else { return }
         
         let session = URLSession.shared
         let task = session.dataTask(with: url) { (data, response, error) in
-            let repository = VKRepo()
-            print(Realm.Configuration.defaultConfiguration.fileURL)
-            if let data = data, let json = try? JSON(data: data) {
-                let items = json["response"]["items"].arrayValue
-                let friends = items.map { FriendWithPhoto(json: $0) }
-                let repository = VKRepo()
-                repository.saveUsersData(friends)
-                completion(friends)
+            DispatchQueue.main.async {
+                if let data = data, let json = try? JSON(data: data) {
+                    let items = json["response"]["items"].arrayValue
+                    let friends = items.map { FriendWithPhoto(json: $0) }
+                    let repository = VKRepo()
+                    repository.saveUsersData(friends)
+                    completion(friends)
+                }
             }
-            //            if let data = data, let json = try? JSON(data: data) {
-            //                let items = json["response"]["items"].arrayValue
-            //                let friends = items.map { FriendWithPhoto(json: $0) }
-            ////                self.onGetFriendsSuccess?(friends)
-            //
-            //            }
         }
-       
+        
         task.resume()
     }
+    
     
 
     
