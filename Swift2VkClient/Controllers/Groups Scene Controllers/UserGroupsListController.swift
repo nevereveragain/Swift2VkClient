@@ -31,18 +31,6 @@ class UserGroupListController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
-//        guard let token: String = KeychainWrapper.standard.string(forKey: "userToken") else { return }
-//        service = VKService (token: token)
-//        service?.getGroups(completion: { (groups) in
-//            if let groups = groups {
-//                self.userGroupList = groups
-//                DispatchQueue.main.async {
-//                    self.tableView.reloadData()
-//                }
-//
-////                self.tableView.reloadData()
-//            }
-//        })
     }
     
     func loadData() {

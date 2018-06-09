@@ -59,10 +59,6 @@ class VKService {
     init(token: String) {
         self.token = token
     }
-    // Отладочная функция для проверки того, не потерялся ли токен
-    func printToken() {
-        print(token)
-    }
     
     func getURLPath(for method: VKServiceMethod) -> String {
         var urlPath = baseURL + method.methodName + "?" + baseParameters
@@ -71,56 +67,6 @@ class VKService {
         }
         return urlPath
     }
-    
-//    func getUsers(completion: (([Users]?, Error?) -> Void)? = nil) {
-//        let urlPath = getURLPath(for: .getUsers)
-//        guard let url = URL(string: urlPath) else { return }
-//        
-//        let session = URLSession.shared
-//        let task = session.dataTask(with: url) { (data, response, error) in
-//            if let error = error {
-//                completion?(nil, error)
-//                return
-//            }
-//            
-//            if let data = data, let json = try? JSON(data: data) {
-//                let users = json["response"].arrayValue.map { Users(json: $0) }
-//                DispatchQueue.main.async {
-//                    completion?(users, nil)
-//                }
-//            }
-//            return
-//        }
-//        task.resume()
-//    }
-    
-    //    var onGetFriendsSuccess: ((_ friends: [FriendWithPhoto] )-> Void)?
-    
-//    func getFriend (completion: @escaping ([FriendWithPhoto]?) -> Void) {
-//        let urlPath = getURLPath(for: .getFriends)
-//        guard let url = URL(string: urlPath) else { return }
-//
-//        let session = URLSession.shared
-//        let task = session.dataTask(with: url) { (data, response, error) in
-//            let repository = VKRepo()
-//            print(Realm.Configuration.defaultConfiguration.fileURL)
-//            if let data = data, let json = try? JSON(data: data) {
-//                let items = json["response"]["items"].arrayValue
-//                let friends = items.map { FriendWithPhoto(json: $0) }
-//                let repository = VKRepo()
-//                repository.saveUsersData(friends)
-//                completion(friends)
-//            }
-//            //            if let data = data, let json = try? JSON(data: data) {
-//            //                let items = json["response"]["items"].arrayValue
-//            //                let friends = items.map { FriendWithPhoto(json: $0) }
-//            ////                self.onGetFriendsSuccess?(friends)
-//            //
-//            //            }
-//        }
-//
-//        task.resume()
-//    }
     
     func getFriends (completion: @escaping ([FriendWithPhoto]?) -> Void) {
         let urlPath = getURLPath(for: .getFriends)
@@ -164,26 +110,6 @@ class VKService {
     }
     
     
-//    func getGroups (completion: @escaping ([Groups]?) -> Void) {
-//        let urlPath = getURLPath(for: .getGroups)
-//        guard let url = URL(string: urlPath) else { return }
-//
-//        let session = URLSession.shared
-//        let task = session.dataTask(with: url) { (data, response, error) in
-//            let repository = VKRepo()
-////            repository.saveUsersData(groups)
-//
-//            //            if let error = error {
-//            //                completion(nil, error)
-//            //            }
-//            if let data = data, let json = try? JSON(data: data) {
-//                let items = json["response"]["items"].arrayValue
-////                groups = items.map { Groups(json: $0) }
-////                completion(groups)
-//            }
-//        }
-//        task.resume()
-//    }
     func groupSearch(_ request: String) {
         let urlPath = getURLPath(for: .searchGroups) + request
         // getURLPath выходил из гварда если в запросе был пробел.   Добавил обработку этого случая - обрезал пробел с помощью addingPercentEncoding
@@ -200,21 +126,6 @@ class VKService {
         }
         task.resume()
     }
-    
-//    func saveData (_ vkObject: [Object]){
-//        let realm = try! Realm()
-//        do {
-//            try realm.write {
-//                realm.add(vkObject)
-//                print(realm.configuration.fileURL)
-//            }
-//
-//        }
-//        catch {
-//            print(error)
-//        }
-//    }
-//
     
 }
 

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		120C688C20C05A82005C71F3 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120C688B20C05A82005C71F3 /* Users.swift */; };
 		120C688E20C05A8D005C71F3 /* FriendWithPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120C688D20C05A8D005C71F3 /* FriendWithPhoto.swift */; };
 		120C689020C05ACF005C71F3 /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120C688F20C05ACF005C71F3 /* Groups.swift */; };
 		123F0A1320BBFBC4003151BA /* NetworkQueries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123F0A1220BBFBC4003151BA /* NetworkQueries.swift */; };
@@ -33,7 +32,6 @@
 
 /* Begin PBXFileReference section */
 		10C659EC36DAE1EE272151FA /* Pods-Swift2VkClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swift2VkClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-Swift2VkClient/Pods-Swift2VkClient.release.xcconfig"; sourceTree = "<group>"; };
-		120C688B20C05A82005C71F3 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		120C688D20C05A8D005C71F3 /* FriendWithPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendWithPhoto.swift; sourceTree = "<group>"; };
 		120C688F20C05ACF005C71F3 /* Groups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Groups.swift; sourceTree = "<group>"; };
 		123F0A1220BBFBC4003151BA /* NetworkQueries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkQueries.swift; sourceTree = "<group>"; };
@@ -75,7 +73,6 @@
 		120C688A20C05A65005C71F3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				120C688B20C05A82005C71F3 /* Users.swift */,
 				120C688D20C05A8D005C71F3 /* FriendWithPhoto.swift */,
 				120C688F20C05ACF005C71F3 /* Groups.swift */,
 			);
@@ -346,7 +343,6 @@
 				12B3873420A17C7B001565C5 /* LoginScreenViewController.swift in Sources */,
 				1280938120B8136300CF4FB6 /* LoginWithVKController.swift in Sources */,
 				12ABCD6620B1923B00B27A52 /* UserGroupsCellController.swift in Sources */,
-				120C688C20C05A82005C71F3 /* Users.swift in Sources */,
 				12ABCD6820B1924C00B27A52 /* AllGroupsCellController.swift in Sources */,
 				12B3873220A17C7B001565C5 /* AppDelegate.swift in Sources */,
 				120C688E20C05A8D005C71F3 /* FriendWithPhoto.swift in Sources */,

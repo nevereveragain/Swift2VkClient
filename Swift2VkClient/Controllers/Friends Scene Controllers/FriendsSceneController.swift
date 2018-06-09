@@ -24,16 +24,10 @@ class FriendsSceneController : UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
-        //        guard let token: String = KeychainWrapper.standard.string(forKey: "userToken") else { return }
-        //        service = VKService (token: token)
-        //        service?.getFriend(completion: { (friends) in
-        //            if let friends = friends {
-        //                self.friends = friends
-        //                self.tableView.reloadData()
-        //            }
-        //        })
         
     }
+    
+    //TODO: Refactoring
     func loadData() {
         guard let token: String = KeychainWrapper.standard.string(forKey: "userToken") else { return }
         service = VKService (token: token)
@@ -43,14 +37,6 @@ class FriendsSceneController : UITableViewController {
                 self.tableView.reloadData()
             }
         })
-//        do {
-//            let realm = try Realm()
-//            let friendsLoaded = realm.objects(FriendWithPhoto.self).filter("friendID == %@")
-//            self.friends = Array(friendsLoaded)
-//        } catch {
-//            // если произошла ошибка, выводим ее в консоль
-//            print(error)
-//        }
     }
     
     
