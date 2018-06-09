@@ -30,6 +30,8 @@ class AllGroupsListController: UITableViewController, UISearchBarDelegate {
         filteredData = allGroupsList
         alterLayout()
     }
+    
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

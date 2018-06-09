@@ -10,14 +10,8 @@ import UIKit
 import SwiftKeychainWrapper
 
 class UserGroupListController: UITableViewController {
-    // Список существующих групп, который потом будет приходить с сервера
-    var groupsList = [
-        "И этого я ждал 45 минут?",
-        "Dype Skogen",
-        "CARPENTER BRUT",
-        "I am waiting for you last summer"
-    ]
-    var userGroupList = [Groups]()
+    
+    var groups = [Groups]()
     var service: VKService?
     
     @IBAction func addGroup(segue: UIStoryboardSegue) {
@@ -25,27 +19,39 @@ class UserGroupListController: UITableViewController {
             return
         }
         
-        if let indexPath = allGroupsController.tableView.indexPathForSelectedRow {
-            let groupToAdd = allGroupsController.filteredData[indexPath.row]
-            if !groupsList.contains(groupToAdd.name) {
-                groupsList.append(groupToAdd.name)
-                tableView.reloadData()
-            }
-        }
+//        if let indexPath = allGroupsController.tableView.indexPathForSelectedRow {
+//            let groupToAdd = allGroupsController.filteredData[indexPath.row]
+//            if !groupsList.contains(groupToAdd.name) {
+//                groupsList.append(groupToAdd.name)
+//                tableView.reloadData()
+//            }
+//        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadData()
+//        guard let token: String = KeychainWrapper.standard.string(forKey: "userToken") else { return }
+//        service = VKService (token: token)
+//        service?.getGroups(completion: { (groups) in
+//            if let groups = groups {
+//                self.userGroupList = groups
+//                DispatchQueue.main.async {
+//                    self.tableView.reloadData()
+//                }
+//
+////                self.tableView.reloadData()
+//            }
+//        })
+    }
+    
+    func loadData() {
         guard let token: String = KeychainWrapper.standard.string(forKey: "userToken") else { return }
         service = VKService (token: token)
         service?.getGroups(completion: { (groups) in
             if let groups = groups {
-                self.userGroupList = groups
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-
-//                self.tableView.reloadData()
+                self.groups = groups
+                self.tableView.reloadData()
             }
         })
     }
@@ -55,7 +61,7 @@ class UserGroupListController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return userGroupList.count
+        return groups.count
     }
     
     
@@ -64,7 +70,7 @@ class UserGroupListController: UITableViewController {
             // получаем ячейку из пула
             let cell = tableView.dequeueReusableCell(withIdentifier: "GroupCell", for: indexPath) as! UserGroupsCellController
             // получаем имя для конкретной строки
-            let group = userGroupList[indexPath.row]
+            let group = groups[indexPath.row]
             // устанавливаем имя в надпись ячейки
             cell.setGroupCell(group)
             return cell
@@ -75,7 +81,7 @@ class UserGroupListController: UITableViewController {
         // если была нажата кнопка удалить
         if editingStyle == .delete {
             // мы удаляем группу из массива
-            groupsList.remove(at: indexPath.row)
+            groups.remove(at: indexPath.row)
             // и удаляем строку из таблицы
             tableView.deleteRows(at: [indexPath], with: .left)
         }

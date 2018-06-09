@@ -122,7 +122,7 @@ class VKService {
 //        task.resume()
 //    }
     
-    func getFriend (completion: @escaping ([FriendWithPhoto]?) -> Void) {
+    func getFriends (completion: @escaping ([FriendWithPhoto]?) -> Void) {
         let urlPath = getURLPath(for: .getFriends)
         guard let url = URL(string: urlPath) else { return }
         
@@ -143,29 +143,47 @@ class VKService {
     }
     
     
-
-    
-    
     func getGroups (completion: @escaping ([Groups]?) -> Void) {
         let urlPath = getURLPath(for: .getGroups)
         guard let url = URL(string: urlPath) else { return }
         
         let session = URLSession.shared
         let task = session.dataTask(with: url) { (data, response, error) in
-            let repository = VKRepo()
-//            repository.saveUsersData(groups)
-
-            //            if let error = error {
-            //                completion(nil, error)
-            //            }
-            if let data = data, let json = try? JSON(data: data) {
-                let items = json["response"]["items"].arrayValue
-//                groups = items.map { Groups(json: $0) }
-//                completion(groups)
+            DispatchQueue.main.async {
+                if let data = data, let json = try? JSON(data: data) {
+                    let items = json["response"]["items"].arrayValue
+                    let groups = items.map { Groups(json: $0) }
+                    let repository = VKRepo()
+                    repository.saveGroupsData(groups)
+                    completion(groups)
+                }
             }
         }
+        
         task.resume()
     }
+    
+    
+//    func getGroups (completion: @escaping ([Groups]?) -> Void) {
+//        let urlPath = getURLPath(for: .getGroups)
+//        guard let url = URL(string: urlPath) else { return }
+//
+//        let session = URLSession.shared
+//        let task = session.dataTask(with: url) { (data, response, error) in
+//            let repository = VKRepo()
+////            repository.saveUsersData(groups)
+//
+//            //            if let error = error {
+//            //                completion(nil, error)
+//            //            }
+//            if let data = data, let json = try? JSON(data: data) {
+//                let items = json["response"]["items"].arrayValue
+////                groups = items.map { Groups(json: $0) }
+////                completion(groups)
+//            }
+//        }
+//        task.resume()
+//    }
     func groupSearch(_ request: String) {
         let urlPath = getURLPath(for: .searchGroups) + request
         // getURLPath выходил из гварда если в запросе был пробел.   Добавил обработку этого случая - обрезал пробел с помощью addingPercentEncoding
