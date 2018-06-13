@@ -9,7 +9,7 @@
 //
 //import Alamofire
 //
-//// MARK: LoginWithVKController
+//// MARK: File has been commented till the free time for alamofire requests studying
 //extension LoginWithVKController {
 //    
 //    func loadFriendsListWithPhoto() {

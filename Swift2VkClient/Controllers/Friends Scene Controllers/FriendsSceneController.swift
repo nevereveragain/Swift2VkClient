@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftKeychainWrapper
+import RealmSwift
 
 class FriendsSceneController : UITableViewController {
     var friendsList = [
@@ -18,53 +19,32 @@ class FriendsSceneController : UITableViewController {
     
     var service: VKService?
     var friends = [FriendWithPhoto]()
-
-//    {
-//        didSet {
-//            self.tableView.reloadData()
-//        }
-//    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let token: String = KeychainWrapper.standard.string(forKey: "userToken") else { return }
-        service = VKService (token: token)
-//        service?.onGetFriendsSuccess = self.onGetFriends(_:)
-//        service?.getGroups(completion: { (groups, error) in
-//            if let error = error {
-//                print(error)
-//                return
-//            }
-//            if let groups = groups {
-//                self.groupList = groups
-//                self.tableView.reloadData()
-//            }
-//        })
-        service?.getFriend(completion: { (friends) in
-            if let friends = friends {
-                self.friends = friends
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-//
-//                self.tableView.reloadData()
-            }
-        })
+        loadData()
         
     }
     
-//    func onGetFriends(_ friends: [FriendWithPhoto]) {
-//        self.friends = friends
-//    }
+    //TODO: Refactoring
+    func loadData() {
+        guard let token: String = KeychainWrapper.standard.string(forKey: "userToken") else { return }
+        service = VKService (token: token)
+        service?.getFriends(completion: { (friends) in
+            if let friends = friends {
+                self.friends = friends
+                self.tableView.reloadData()
+            }
+        })
+    }
+    
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        print(friends)
-//        return friendsList.count
         return friends.count
     }
     
@@ -82,10 +62,6 @@ class FriendsSceneController : UITableViewController {
         UITableViewCell {
             // получаем ячейку из пула
             let cell = tableView.dequeueReusableCell(withIdentifier: "TableToCollection", for: indexPath) as! FriendsSceneCellController
-            // получаем имя для конкретной строки
-//            let friend1 = friendsList[indexPath.row]
-//            // устанавливаем имя в надпись ячейки
-//            cell.friendName.text = friend1
             let friendCell = friends[indexPath.row]
             cell.setFriendCell(friendCell)
             return cell
