@@ -16,6 +16,8 @@ class FriendWithPhoto: Object {
     @objc dynamic var lastName: String = ""
     @objc dynamic var imageURL: String = ""
     
+    let photos = List<Image>()
+    
     convenience init(json: JSON) {
         self.init()
         self.friendID = json["id"].intValue
@@ -23,4 +25,9 @@ class FriendWithPhoto: Object {
         self.lastName = json["last_name"].stringValue
         self.imageURL = json["photo_100"].stringValue
     }
+    
+    override static func primaryKey() -> String? {
+        return "friendID"
+    }
+    
 }

@@ -10,6 +10,7 @@
 		120C688E20C05A8D005C71F3 /* FriendWithPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120C688D20C05A8D005C71F3 /* FriendWithPhoto.swift */; };
 		120C689020C05ACF005C71F3 /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120C688F20C05ACF005C71F3 /* Groups.swift */; };
 		123F0A1320BBFBC4003151BA /* NetworkQueries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123F0A1220BBFBC4003151BA /* NetworkQueries.swift */; };
+		125DD8E120CC58AA00C97699 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125DD8E020CC58AA00C97699 /* Image.swift */; };
 		1264D6A920C8680D00EC7A7B /* VKRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1264D6A820C8680D00EC7A7B /* VKRepo.swift */; };
 		1280938120B8136300CF4FB6 /* LoginWithVKController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1280938020B8136300CF4FB6 /* LoginWithVKController.swift */; };
 		12ABCD5F20B17C3D00B27A52 /* FriendSceneCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12ABCD5E20B17C3D00B27A52 /* FriendSceneCollectionController.swift */; };
@@ -35,6 +36,7 @@
 		120C688D20C05A8D005C71F3 /* FriendWithPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendWithPhoto.swift; sourceTree = "<group>"; };
 		120C688F20C05ACF005C71F3 /* Groups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Groups.swift; sourceTree = "<group>"; };
 		123F0A1220BBFBC4003151BA /* NetworkQueries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkQueries.swift; sourceTree = "<group>"; };
+		125DD8E020CC58AA00C97699 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		1264D6A820C8680D00EC7A7B /* VKRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKRepo.swift; sourceTree = "<group>"; };
 		1280938020B8136300CF4FB6 /* LoginWithVKController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithVKController.swift; sourceTree = "<group>"; };
 		12ABCD5E20B17C3D00B27A52 /* FriendSceneCollectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendSceneCollectionController.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 			children = (
 				120C688D20C05A8D005C71F3 /* FriendWithPhoto.swift */,
 				120C688F20C05ACF005C71F3 /* Groups.swift */,
+				125DD8E020CC58AA00C97699 /* Image.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				120C688E20C05A8D005C71F3 /* FriendWithPhoto.swift in Sources */,
 				12F87D2920B4240D003AE259 /* GroupStruct.swift in Sources */,
 				12ABCD6120B17CCB00B27A52 /* FriendCollectionCell.swift in Sources */,
+				125DD8E120CC58AA00C97699 /* Image.swift in Sources */,
 				12DA1C0F20C284E100D5256F /* VKService.swift in Sources */,
 				12ABCD6A20B1987E00B27A52 /* UserGroupsListController.swift in Sources */,
 				12ABCD6C20B1996200B27A52 /* AllGroupsListController.swift in Sources */,
