@@ -18,6 +18,7 @@ enum VKServiceMethod {
     case getPhotos
     case getGroups
     case searchGroups
+    case getMessages
     
     var methodName: String {
         switch self {
@@ -31,6 +32,8 @@ enum VKServiceMethod {
             return "groups.get"
         case .searchGroups:
             return "groups.search"
+        case .getMessages:
+            return "messages.getHistory"
         }
     }
     
@@ -46,6 +49,8 @@ enum VKServiceMethod {
             return "extended=1&fields=name,photo_100"
         case .searchGroups:
             return "q="
+        case .getMessages:
+            return "count=20"
         }
     }
 }
@@ -108,7 +113,21 @@ class VKService {
         
         task.resume()
     }
-    
+    // Я делаю пока простой вариант сообщений - только текст
+    func getMessages (hostId: Int, friendId: Int) {
+        let urlPath = getURLPath(for: .getMessages) + "user_id=\(hostId)&peer_id=\(friendId)"
+        guard let url = URL(string: urlPath) else { return }
+        let session = URLSession.shared
+        let task = session.dataTask(with: url) { (data, response, error) in
+            if let data = data, let json = try? JSON(data: data) {
+                let items = json["response"]["items"].arrayValue
+                // TODO
+                let messages = items.map { Message(json: $0) }
+                print(messages)
+            }
+        }
+        task.resume()
+    }
     
     func groupSearch(_ request: String) {
         let urlPath = getURLPath(for: .searchGroups) + request
