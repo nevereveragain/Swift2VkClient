@@ -19,6 +19,7 @@ enum VKServiceMethod {
     case getGroups
     case searchGroups
     case getMessages
+    case sendMessage
     
     var methodName: String {
         switch self {
@@ -34,6 +35,8 @@ enum VKServiceMethod {
             return "groups.search"
         case .getMessages:
             return "messages.getHistory"
+        case .sendMessage:
+            return "messages.send"
         }
     }
     
@@ -51,7 +54,10 @@ enum VKServiceMethod {
             return "q="
         case .getMessages:
             return "count=20"
+        case .sendMessage:
+            return ""
         }
+        
     }
 }
 class VKService {
@@ -116,6 +122,21 @@ class VKService {
     // Я делаю пока простой вариант сообщений - только текст
     func getMessages (hostId: Int, friendId: Int) {
         let urlPath = getURLPath(for: .getMessages) + "user_id=\(hostId)&peer_id=\(friendId)"
+        guard let url = URL(string: urlPath) else { return }
+        let session = URLSession.shared
+        let task = session.dataTask(with: url) { (data, response, error) in
+            if let data = data, let json = try? JSON(data: data) {
+                let items = json["response"]["items"].arrayValue
+                // TODO
+                let messages = items.map { Message(json: $0) }
+                print(messages)
+            }
+        }
+        task.resume()
+    }
+    
+    func sendMessage (hostId: Int, text: String) {
+        let urlPath = getURLPath(for: .sendMessage) + "\(text)"
         guard let url = URL(string: urlPath) else { return }
         let session = URLSession.shared
         let task = session.dataTask(with: url) { (data, response, error) in
