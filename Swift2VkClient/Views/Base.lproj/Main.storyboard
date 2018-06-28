@@ -180,7 +180,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="192" id="oPi-c0-hPW">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsPostCell" rowHeight="192" id="oPi-c0-hPW">
                                 <rect key="frame" x="0.0" y="220" width="320" height="192"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oPi-c0-hPW" id="zEQ-5d-CgL">
@@ -432,39 +432,59 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Snx-mS-fsF">
-                            <size key="itemSize" width="256" height="256"/>
+                            <size key="itemSize" width="117" height="107"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
-                        <imageView key="backgroundView" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Back" id="dok-C2-1c5">
+                        <view key="backgroundView" contentMode="scaleToFill" id="yPT-jS-4Ln">
                             <rect key="frame" x="0.0" y="-64" width="320" height="568"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
+                            <subviews>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ufd-Tw-XL6">
+                                    <rect key="frame" x="0.0" y="439" width="320" height="30"/>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ooI-oj-Jxw">
+                                    <rect key="frame" x="266" y="477" width="46" height="30"/>
+                                    <state key="normal" title="Button">
+                                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    </state>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="ooI-oj-Jxw" firstAttribute="top" secondItem="ufd-Tw-XL6" secondAttribute="bottom" constant="10" id="3L6-cB-R1M"/>
+                                <constraint firstItem="ooI-oj-Jxw" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="yPT-jS-4Ln" secondAttribute="leading" symbolic="YES" id="QMF-Xk-F8r"/>
+                                <constraint firstAttribute="bottom" secondItem="ufd-Tw-XL6" secondAttribute="bottom" constant="50" id="Sto-KA-iD2"/>
+                                <constraint firstItem="ufd-Tw-XL6" firstAttribute="leading" secondItem="yPT-jS-4Ln" secondAttribute="leading" id="TnT-wy-VZG"/>
+                                <constraint firstAttribute="trailing" secondItem="ufd-Tw-XL6" secondAttribute="trailing" id="WPV-Lj-M1X"/>
+                                <constraint firstAttribute="trailing" secondItem="ooI-oj-Jxw" secondAttribute="trailing" constant="10" id="eA4-tG-YL5"/>
+                            </constraints>
+                        </view>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionElement" id="Z7Y-Vo-dor" customClass="FriendCollectionCell" customModule="Swift2VkClient" customModuleProvider="target">
-                                <rect key="frame" x="32" y="0.0" width="256" height="256"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="TopLeft" semanticContentAttribute="forceLeftToRight" reuseIdentifier="CollectionElement" id="Z7Y-Vo-dor" customClass="FriendCollectionCell" customModule="Swift2VkClient" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="117" height="107"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="256" height="256"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="117" height="107"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="friendAvatar" image="256px-Reddit" translatesAutoresizingMaskIntoConstraints="NO" id="CKY-9L-W8N">
-                                            <rect key="frame" x="0.0" y="0.0" width="256" height="256"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="100" id="KMm-9j-eAI"/>
+                                                <constraint firstAttribute="width" constant="100" id="bDG-5M-JHs"/>
+                                            </constraints>
                                         </imageView>
                                     </subviews>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="CKY-9L-W8N" firstAttribute="centerX" secondItem="Z7Y-Vo-dor" secondAttribute="centerX" id="5KL-87-MiK"/>
-                                    <constraint firstItem="CKY-9L-W8N" firstAttribute="centerY" secondItem="Z7Y-Vo-dor" secondAttribute="centerY" id="BAu-0b-oAE"/>
-                                    <constraint firstItem="CKY-9L-W8N" firstAttribute="centerX" secondItem="Z7Y-Vo-dor" secondAttribute="centerX" id="BPq-U8-8TV"/>
-                                    <constraint firstItem="CKY-9L-W8N" firstAttribute="centerY" secondItem="Z7Y-Vo-dor" secondAttribute="centerY" id="BQu-Q5-moR"/>
-                                    <constraint firstItem="CKY-9L-W8N" firstAttribute="centerY" secondItem="Z7Y-Vo-dor" secondAttribute="centerY" id="XZz-J3-LB5"/>
-                                    <constraint firstItem="CKY-9L-W8N" firstAttribute="centerX" secondItem="Z7Y-Vo-dor" secondAttribute="centerX" id="ZdA-dd-NbV"/>
-                                    <constraint firstItem="CKY-9L-W8N" firstAttribute="centerY" secondItem="Z7Y-Vo-dor" secondAttribute="centerY" id="p45-Pg-4uL"/>
-                                    <constraint firstItem="CKY-9L-W8N" firstAttribute="centerX" secondItem="Z7Y-Vo-dor" secondAttribute="centerX" id="uUL-bb-VGo"/>
+                                    <constraint firstItem="CKY-9L-W8N" firstAttribute="leading" secondItem="Z7Y-Vo-dor" secondAttribute="leading" id="6Jv-k3-6OI"/>
+                                    <constraint firstItem="CKY-9L-W8N" firstAttribute="top" secondItem="Z7Y-Vo-dor" secondAttribute="top" id="rwX-rO-edS"/>
                                 </constraints>
-                                <size key="customSize" width="256" height="256"/>
                                 <connections>
                                     <outlet property="friendAvatarLarge" destination="CKY-9L-W8N" id="bGo-li-wwI"/>
                                 </connections>
@@ -478,7 +498,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5qX-P3-8sK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3448" y="-189"/>
+            <point key="canvasLocation" x="3446.25" y="-189.08450704225353"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mt4-Wk-xnx">
@@ -558,7 +578,6 @@
     </scenes>
     <resources>
         <image name="256px-Reddit" width="256" height="256"/>
-        <image name="Back" width="240" height="360"/>
         <image name="grouptoadd" width="260" height="260"/>
         <image name="usergroup" width="260" height="260"/>
     </resources>
