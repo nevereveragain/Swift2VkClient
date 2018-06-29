@@ -14,7 +14,7 @@ class FriendCollectionCell : UICollectionViewCell {
     @IBOutlet weak var friendAvatarLarge: UIImageView!
     
     func setFriendCell (_ friend: FriendWithPhoto) {
-        // Тут я понял, что надо было делать имя и фамилию разными полями, но в изначальном контексте задачи это не прослеживалось, поэтому пусть пока остается так
+        // Тут я понял, что надо было делать имя и фамилию разными полями, но в изначальном контексте задачи это не прослеживалось, поэтому пусть остается так
         if let friendAvatarURL = URL(string: "\(friend.imageURL)") {
             friendAvatarLarge.kf.setImage(with: friendAvatarURL)
         }
