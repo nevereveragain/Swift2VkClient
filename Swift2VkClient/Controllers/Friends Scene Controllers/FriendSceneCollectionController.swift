@@ -7,14 +7,21 @@
 //
 
 import UIKit
+import SwiftKeychainWrapper
 
 class FriendSceneCollectionController : UICollectionViewController, UICollectionViewDelegateFlowLayout {
     var friendAvatar: FriendWithPhoto?
+    var service: VKService?
     
+    @IBAction func sendText(_ sender: Any) {
+    }
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView?.delegate = self
     }
+
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 1
@@ -38,7 +45,7 @@ class FriendSceneCollectionController : UICollectionViewController, UICollection
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = UIScreen.main.bounds.width
-        let cellWidth = width / 2.0
+        let cellWidth = width 
         
         return CGSize(width: cellWidth, height: cellWidth)
     }

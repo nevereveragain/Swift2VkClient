@@ -18,9 +18,10 @@ class UserGroupListController: UITableViewController {
     var notificationToken: NotificationToken?
     
     @IBAction func addGroup(segue: UIStoryboardSegue) {
-        guard let allGroupsController = segue.source as? AllGroupsListController else {
-            return
-        }
+//        Стало артефактов, пусть пока живет в коментарии, потом выпилю
+//        guard let allGroupsController = segue.source as? AllGroupsListController else {
+//            return
+//        }
         
     }
     

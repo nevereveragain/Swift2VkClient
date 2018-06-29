@@ -26,6 +26,9 @@
 		12B3873C20A17C7D001565C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12B3873A20A17C7D001565C5 /* LaunchScreen.storyboard */; };
 		12C83D7320B165AC0040A3A6 /* FriendsSceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C83D7220B165AC0040A3A6 /* FriendsSceneController.swift */; };
 		12C83D7520B166160040A3A6 /* FriendsSceneCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C83D7420B166160040A3A6 /* FriendsSceneCellController.swift */; };
+		12D6C6F020E368AF0064134A /* NewsPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D6C6EF20E368AF0064134A /* NewsPhotoCell.swift */; };
+		12D6C6F220E368BC0064134A /* NewsPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D6C6F120E368BC0064134A /* NewsPostCell.swift */; };
+		12D6C6F420E3CB7E0064134A /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D6C6F320E3CB7E0064134A /* Message.swift */; };
 		12DA1C0F20C284E100D5256F /* VKService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DA1C0E20C284E100D5256F /* VKService.swift */; };
 		12F87D2920B4240D003AE259 /* GroupStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F87D2820B4240D003AE259 /* GroupStruct.swift */; };
 		BE26A3A9904A79B8A89642B7 /* Pods_Swift2VkClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38A3D16D7BEA9C375226EF53 /* Pods_Swift2VkClient.framework */; };
@@ -54,6 +57,9 @@
 		12B3873D20A17C7D001565C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		12C83D7220B165AC0040A3A6 /* FriendsSceneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsSceneController.swift; sourceTree = "<group>"; };
 		12C83D7420B166160040A3A6 /* FriendsSceneCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsSceneCellController.swift; sourceTree = "<group>"; };
+		12D6C6EF20E368AF0064134A /* NewsPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPhotoCell.swift; sourceTree = "<group>"; };
+		12D6C6F120E368BC0064134A /* NewsPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPostCell.swift; sourceTree = "<group>"; };
+		12D6C6F320E3CB7E0064134A /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		12DA1C0E20C284E100D5256F /* VKService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKService.swift; sourceTree = "<group>"; };
 		12F87D2820B4240D003AE259 /* GroupStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupStruct.swift; sourceTree = "<group>"; };
 		38A3D16D7BEA9C375226EF53 /* Pods_Swift2VkClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swift2VkClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,6 +84,7 @@
 				120C688D20C05A8D005C71F3 /* FriendWithPhoto.swift */,
 				120C688F20C05ACF005C71F3 /* Groups.swift */,
 				125DD8E020CC58AA00C97699 /* Image.swift */,
+				12D6C6F320E3CB7E0064134A /* Message.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -159,6 +166,15 @@
 			path = "Friends Scene Controllers";
 			sourceTree = "<group>";
 		};
+		12D6C6EE20E368200064134A /* News Scene Views */ = {
+			isa = PBXGroup;
+			children = (
+				12D6C6EF20E368AF0064134A /* NewsPhotoCell.swift */,
+				12D6C6F120E368BC0064134A /* NewsPostCell.swift */,
+			);
+			path = "News Scene Views";
+			sourceTree = "<group>";
+		};
 		12DA1C0D20C284CA00D5256F /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +187,7 @@
 		12E80BC220A344AA0018FB1E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				12D6C6EE20E368200064134A /* News Scene Views */,
 				12ABCD6420B191F300B27A52 /* Groups Scene Views */,
 				12ABCD6320B1908800B27A52 /* Friends Scene Views */,
 				12B3873520A17C7B001565C5 /* Main.storyboard */,
@@ -339,9 +356,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				12C83D7520B166160040A3A6 /* FriendsSceneCellController.swift in Sources */,
+				12D6C6F020E368AF0064134A /* NewsPhotoCell.swift in Sources */,
 				12ABCD5F20B17C3D00B27A52 /* FriendSceneCollectionController.swift in Sources */,
 				1264D6A920C8680D00EC7A7B /* VKRepo.swift in Sources */,
+				12D6C6F220E368BC0064134A /* NewsPostCell.swift in Sources */,
 				12C83D7320B165AC0040A3A6 /* FriendsSceneController.swift in Sources */,
+				12D6C6F420E3CB7E0064134A /* Message.swift in Sources */,
 				120C689020C05ACF005C71F3 /* Groups.swift in Sources */,
 				12B3873420A17C7B001565C5 /* LoginScreenViewController.swift in Sources */,
 				1280938120B8136300CF4FB6 /* LoginWithVKController.swift in Sources */,
