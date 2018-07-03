@@ -20,6 +20,7 @@ enum VKServiceMethod {
     case searchGroups
     case getMessages
     case sendMessage
+    case getNews
     
     var methodName: String {
         switch self {
@@ -37,6 +38,8 @@ enum VKServiceMethod {
             return "messages.getHistory"
         case .sendMessage:
             return "messages.send"
+        case .getNews:
+            return "newsfeed.get"
         }
     }
     
@@ -56,6 +59,8 @@ enum VKServiceMethod {
             return "count=20"
         case .sendMessage:
             return ""
+        case .getNews:
+            return "filters=post,photo"
         }
         
     }
@@ -113,6 +118,26 @@ class VKService {
                     let repository = VKRepo()
                     repository.saveGroupsData(groups)
                     completion(groups)
+                }
+            }
+        }
+        
+        task.resume()
+    }
+    
+    func getNews (completion: @escaping ([News]?) -> Void) {
+        let urlPath = getURLPath(for: .getNews)
+        guard let url = URL(string: urlPath) else { return }
+        
+        let session = URLSession.shared
+        let task = session.dataTask(with: url) { (data, response, error) in
+            DispatchQueue.main.async {
+                if let data = data, let json = try? JSON(data: data) {
+                    let items = json["response"]["items"].arrayValue
+                    let news = items.map { News(json: $0) }
+                    let repository = VKRepo()
+                    repository.saveGroupsData(news)
+                    completion(news)
                 }
             }
         }

@@ -10,6 +10,7 @@
 		120C688E20C05A8D005C71F3 /* FriendWithPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120C688D20C05A8D005C71F3 /* FriendWithPhoto.swift */; };
 		120C689020C05ACF005C71F3 /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120C688F20C05ACF005C71F3 /* Groups.swift */; };
 		123F0A1320BBFBC4003151BA /* NetworkQueries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123F0A1220BBFBC4003151BA /* NetworkQueries.swift */; };
+		124E99AA20EB61DF00706E96 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124E99A920EB61DF00706E96 /* News.swift */; };
 		125DD8E120CC58AA00C97699 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125DD8E020CC58AA00C97699 /* Image.swift */; };
 		1264D6A920C8680D00EC7A7B /* VKRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1264D6A820C8680D00EC7A7B /* VKRepo.swift */; };
 		1280938120B8136300CF4FB6 /* LoginWithVKController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1280938020B8136300CF4FB6 /* LoginWithVKController.swift */; };
@@ -39,6 +40,7 @@
 		120C688D20C05A8D005C71F3 /* FriendWithPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendWithPhoto.swift; sourceTree = "<group>"; };
 		120C688F20C05ACF005C71F3 /* Groups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Groups.swift; sourceTree = "<group>"; };
 		123F0A1220BBFBC4003151BA /* NetworkQueries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkQueries.swift; sourceTree = "<group>"; };
+		124E99A920EB61DF00706E96 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		125DD8E020CC58AA00C97699 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		1264D6A820C8680D00EC7A7B /* VKRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKRepo.swift; sourceTree = "<group>"; };
 		1280938020B8136300CF4FB6 /* LoginWithVKController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithVKController.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				120C688F20C05ACF005C71F3 /* Groups.swift */,
 				125DD8E020CC58AA00C97699 /* Image.swift */,
 				12D6C6F320E3CB7E0064134A /* Message.swift */,
+				124E99A920EB61DF00706E96 /* News.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 				1264D6A920C8680D00EC7A7B /* VKRepo.swift in Sources */,
 				12D6C6F220E368BC0064134A /* NewsPostCell.swift in Sources */,
 				12C83D7320B165AC0040A3A6 /* FriendsSceneController.swift in Sources */,
+				124E99AA20EB61DF00706E96 /* News.swift in Sources */,
 				12D6C6F420E3CB7E0064134A /* Message.swift in Sources */,
 				120C689020C05ACF005C71F3 /* Groups.swift in Sources */,
 				12B3873420A17C7B001565C5 /* LoginScreenViewController.swift in Sources */,
